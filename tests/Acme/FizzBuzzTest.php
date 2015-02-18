@@ -2,7 +2,8 @@
 
 use Acme\FizzBuzz;
 
-class FizzBuzzTest extends PHPUnit_Framework_TestCase {
+class FizzBuzzTest extends PHPUnit_Framework_TestCase
+{
 
     private $fizzbuzz;
 
@@ -37,7 +38,7 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase {
     public function testItTranslatesASequenceForFizzBuzz()
     {
         $result = $this->fizzbuzz->executeUpTo(10);
-        $this->assertEquals([1,2,'fizz',4,'buzz','fizz',7,8,'fizz','buzz'], $result);
+        $this->assertEquals([1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz', 'buzz'], $result);
     }
 
 }
