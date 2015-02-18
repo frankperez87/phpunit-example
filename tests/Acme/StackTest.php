@@ -32,12 +32,21 @@ class StackTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Your data provided must be of type array.
+     * @depends exampleStack
      */
-    public function testConstructorIsPassedInvalidData()
+    public function testPop($stack)
     {
-        $stack = new Stack("TEST");
+        $value = $stack->pop();
+        $this->assertEquals(2, $stack->getCount());
+        $this->assertEquals('foobar', $value);
+
+        $value = $stack->pop();
+        $this->assertEquals(1, $stack->getCount());
+        $this->assertEquals('bar', $value);
+
+        $value = $stack->pop();
+        $this->assertEquals(0, $stack->getCount());
+        $this->assertEquals('foo', $value);
     }
 
     public function testPush()
@@ -58,20 +67,12 @@ class StackTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends exampleStack
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage Your data provided must be of type array.
      */
-    public function testPop($stack)
+    public function testConstructorIsPassedInvalidData()
     {
-        $value = $stack->pop();
-        $this->assertEquals(2, $stack->getCount());
-        $this->assertEquals('foobar', $value);
-
-        $value = $stack->pop();
-        $this->assertEquals(1, $stack->getCount());
-        $this->assertEquals('bar', $value);
-
-        $value = $stack->pop();
-        $this->assertEquals(0, $stack->getCount());
-        $this->assertEquals('foo', $value);
+        $stack = new Stack("TEST");
     }
+
 }
