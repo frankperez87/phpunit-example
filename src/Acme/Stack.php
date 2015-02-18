@@ -1,25 +1,30 @@
-<?php  namespace Acme;
+<?php namespace Acme;
 
 use InvalidArgumentException;
 
-class Stack {
+class Stack
+{
 
     private $data;
 
-    public function __construct($input = []) {
+    public function __construct($input = [])
+    {
         $this->guardAgainstInvalidInput($input);
         $this->data = $input;
     }
 
-    public function push($item) {
+    public function push($item)
+    {
         array_push($this->data, $item);
     }
 
-    public function pop() {
+    public function pop()
+    {
         return array_pop($this->data);
     }
 
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 
@@ -30,8 +35,9 @@ class Stack {
 
     private function guardAgainstInvalidInput($input)
     {
-        if ($this->isNotArray($input))
+        if ($this->isNotArray($input)) {
             throw new InvalidArgumentException('Your data provided must be of type array.');
+        }
     }
 
     private function isNotArray($input)
