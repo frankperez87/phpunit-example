@@ -1,4 +1,12 @@
 <phpunit
         bootstrap="vendor/autoload.php"
-        processUncoveredFilesFromWhitelist="true">
+        processUncoveredFilesFromWhitelist="true"
+        beStrictAboutTestsThatDoNotTestAnything="true"
+        checkForUnintentionallyCoveredCode="true"
+        beStrictAboutOutputDuringTests="true">
+    <testsuites>
+        <testsuite name="acme">
+            <directory>tests/Acme</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
